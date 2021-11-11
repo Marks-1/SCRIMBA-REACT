@@ -131,7 +131,7 @@ Create a navbar in JSX:
     - Don't worry about styling yet - it'll just be plain-looking HTML for now
 */
 
-/**
+/**soln6
  * 
     const navbar = (
         <nav>
@@ -150,7 +150,7 @@ Create a navbar in JSX:
     );
  */
 
-    /**
+    /**Pract7
 Challenge: find out what happens if we try to append JSX
 to our div#root using .append() instead of ReactDOM
 
@@ -162,19 +162,22 @@ to our div#root using .append() instead of ReactDOM
 4. See if you can explain what actually shows up in the browser
  */
 
-const trial = (
-    <div>
-        <h1>Heading one for the trial</h1>
-        <p>This is a paragraph with no lorem, but just a link <a href="#">Click this to view</a></p>
-        <button type="submit">Submit</button>
-        <footer>&copy; Mark 2021</footer>
-    </div>
-)
+/**Soln7
+ const trial = (
+     <div>
+         <h1>Heading one for the trial</h1>
+         <p>This is a paragraph with no lorem, but just a link <a href="#">Click this to view</a></p>
+         <button type="submit">Submit</button>
+         <footer>&copy; Mark 2021</footer>
+     </div>
+ )
+ 
+ document.getElementById('root').append(JSON.stringify(trial)); //returns [objectObject]
+ * 
+ */
 
-document.getElementById('root').append(JSON.stringify(trial)); //returns [objectObject]
 
-
-/*
+/*Pract8
 Challenge: Starting from scratch, build and render the 
 HTML for our section project. Check the Google slide for 
 what you're trying to build.
@@ -189,29 +192,63 @@ Hints:
   just like in HTML. In the slide, I have it set to 40px
  */
 
-  import React from 'react'
-  import ReactDOM  from 'react-dom'
+  /**Soln8
+   import React from 'react'
+   import ReactDOM  from 'react-dom'
+ 
+   function SimplePage(){
+       return(
+           <section>
+               <nav>
+                   <a href="#">
+                       <img src="./react-logo.png" alt="React Logo" width="40px" />
+                   </a>
+               </nav>
+               <main>
+                   <h1>Fun facts about React</h1>
+                   <ul>
+                     <li>Was first released in 2013</li>
+                     <li>Was originally created by Mark Wallace</li>
+                     <li>Has well over 100k stars in Github</li>
+                     <li>Is maintained by Facebook</li>
+                     <li>Powers thousands of enterprices apps, including mobile apps</li>
+                   </ul>
+               </main>
+           </section>
+       )
+   }
+ 
+   ReactDOM.render(<SimplePage/>, document.getElementById('root'));
+   * 
+   */
 
-  function SimplePage(){
-      return(
-          <section>
-              <nav>
-                  <a href="#">
-                      <img src="./react-logo.png" alt="React Logo" width="40px" />
-                  </a>
-              </nav>
-              <main>
-                  <h1>Fun facts about React</h1>
-                  <ul>
-                    <li>Was first released in 2013</li>
-                    <li>Was originally created by Mark Wallace</li>
-                    <li>Has well over 100k stars in Github</li>
-                    <li>Is maintained by Facebook</li>
-                    <li>Powers thousands of enterprices apps, including mobile apps</li>
-                  </ul>
-              </main>
-          </section>
-      )
-  }
 
-  ReactDOM.render(<SimplePage/>, document.getElementById('root'));
+  /**Pract9
+Challenge: 
+
+Part 1: Create a page of your own using a custom Page component
+
+It should return an ordered list with the reasons why you're
+excited to be learning React :)
+
+Render your list to the page
+
+ */
+
+// import React from 'react'
+// import ReactDOM from 'react-dom'
+
+function NavbarPage(){
+    return(
+        <div>
+            <h1>Why excited to learn React?</h1>
+            <ul>
+                <li>I love components</li>
+                <li>Large community to support when stuck</li>
+                <li>Easy and understandable learning path</li>
+            </ul>
+        </div>
+    )
+}
+
+ReactDOM.render(<NavbarPage/>, document.getElementById('root'))
