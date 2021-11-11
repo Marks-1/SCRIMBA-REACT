@@ -72,7 +72,7 @@ you can do inside the ReactDOM.render call below)
  */
 function MainContent(){
     return(
-        <div className="card text-center">
+        <div className="card text-center mt-2">
             <div className="card-header">
                 Featured
             </div>
@@ -149,3 +149,69 @@ Create a navbar in JSX:
         document.getElementById('root')
     );
  */
+
+    /**
+Challenge: find out what happens if we try to append JSX
+to our div#root using .append() instead of ReactDOM
+
+1. Create a sample page in JSX (≥ 4 elements) and save them in a variable
+2. Select the div with the ID of "root" and use `.append()` to append
+   your JSX
+3. See if you can guess what will show up in the browser before running
+   the code
+4. See if you can explain what actually shows up in the browser
+ */
+
+const trial = (
+    <div>
+        <h1>Heading one for the trial</h1>
+        <p>This is a paragraph with no lorem, but just a link <a href="#">Click this to view</a></p>
+        <button type="submit">Submit</button>
+        <footer>&copy; Mark 2021</footer>
+    </div>
+)
+
+document.getElementById('root').append(JSON.stringify(trial)); //returns [objectObject]
+
+
+/*
+Challenge: Starting from scratch, build and render the 
+HTML for our section project. Check the Google slide for 
+what you're trying to build.
+
+We'll be adding styling to it later.
+
+Hints:
+* The React logo is a file in the project tree, so you can
+  access it by using `src="./react-logo.png" in your image
+  element
+* You can also set the `width` attribute of the image element
+  just like in HTML. In the slide, I have it set to 40px
+ */
+
+  import React from 'react'
+  import ReactDOM  from 'react-dom'
+
+  function SimplePage(){
+      return(
+          <section>
+              <nav>
+                  <a href="#">
+                      <img src="./react-logo.png" alt="React Logo" width="40px" />
+                  </a>
+              </nav>
+              <main>
+                  <h1>Fun facts about React</h1>
+                  <ul>
+                    <li>Was first released in 2013</li>
+                    <li>Was originally created by Mark Wallace</li>
+                    <li>Has well over 100k stars in Github</li>
+                    <li>Is maintained by Facebook</li>
+                    <li>Powers thousands of enterprices apps, including mobile apps</li>
+                  </ul>
+              </main>
+          </section>
+      )
+  }
+
+  ReactDOM.render(<SimplePage/>, document.getElementById('root'));
