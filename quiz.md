@@ -23,4 +23,5 @@ const page = (
  - analogy. telling someone to make you tea.
 
 5. What does it mean for something to be "composable"?
+ - We have small pieces that we can put togther to make something larger/greater
  - Capability to create entire component from simple components
