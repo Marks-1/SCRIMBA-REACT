@@ -238,17 +238,112 @@ Render your list to the page
 // import React from 'react'
 // import ReactDOM from 'react-dom'
 
-function NavbarPage(){
+/**Soln9
+ * 
+ * 
+ function NavbarPage(){
+     return(
+         <div>
+             <header>
+                 <nav>
+                     <img src="./react-logo.png" alt="React Logo" width="40px" />
+                 </nav>
+             </header>
+             <main>
+                 <h1>Reasons I'm excited to learn React</h1>
+                 <ol>
+                     <li>I love components</li>
+                     <li>Large community to support when stuck</li>
+                     <li>Easy and understandable learning path</li>
+                 </ol>
+             </main>
+             <footer>
+                 &copy; 2021 mark development. All rights reserved.
+             </footer>
+         </div>
+     )
+ }
+ 
+ ReactDOM.render(<NavbarPage/>, document.getElementById('root'))
+ */
+
+/**
+Challenge: 
+
+Part 2: 
+- Add a `header` element with a nested `nav` element. Inside the `nav`,
+  include a `img` element with the image of the React logo inside
+  (src="./react-logo.png") and make sure to set the width to something
+  more manageable so it doesn't take up the whole screen
+- Add an `h1` with some text describing the page. (E.g. "Reasons
+  I'm excited to learn React"). Place it above the ordered list.
+- Add a `footer` after the list that says: 
+    "© 20xx <last name here> development. All rights reserved."
+ */
+
+
+// Parent/Child Components
+/**Pract10 {extend Pract9}
+Mini Challenge:
+Move the `header` element from Page into 
+its own component called "Header"
+*/
+
+// CHILDREN
+// Header Component
+/**
+Challenge: 
+
+- Add an `ul` inside the Header's `nav` and create
+  the following `li`s: "Pricing", "About", & "Contact"
+*/
+function Header(){
     return(
-        <div>
-            <h1>Why excited to learn React?</h1>
-            <ul>
+        <header>
+            <nav className="navbar">
+                <img className="imgstyle" src="./image/lighthouse-logo.svg" alt="React Logo" />
+                <ul className="nav-items">
+                    <li>Pricing</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+            </nav>
+        </header>
+    )
+}
+
+// Main Component
+function Main() {
+    return(
+       <main>
+            <h1>Reasons I'm excited to learn React</h1>
+            <ol>
                 <li>I love components</li>
                 <li>Large community to support when stuck</li>
                 <li>Easy and understandable learning path</li>
-            </ul>
+            </ol> 
+       </main>
+    )
+}
+
+// Footer Component
+function Footer() {
+    return(
+        <footer>
+            &copy; 2022 mark development. All rights reserved.
+        </footer>
+    )
+}
+
+// PARENT
+function MainPage() {
+    return(
+        <div>
+            <Header/>
+            <Main/>
+            <Footer/>
         </div>
     )
 }
 
-ReactDOM.render(<NavbarPage/>, document.getElementById('root'))
+ReactDOM.render(<MainPage/>, document.getElementById('root'))
